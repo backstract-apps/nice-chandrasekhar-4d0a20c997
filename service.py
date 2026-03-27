@@ -114,7 +114,7 @@ async def get_agent(request: Request, db: Session, prompt: str):
     try:
         agent_response = await asyncio.wait_for(
             run_agent_query(agent=tendua_agent, query=prompt, run_config=run_config),
-            timeout=120,  # 2 minutes
+            timeout=60,  # 2 minutes
         )
     except asyncio.TimeoutError:
         return {
