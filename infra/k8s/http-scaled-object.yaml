@@ -1,0 +1,24 @@
+kind: HTTPScaledObject
+apiVersion: http.keda.sh/v1alpha1
+metadata:
+  name: nice-chandrasekhar-4d0a20c997-scaler
+  namespace: apps-release
+spec:
+  hosts:
+    - cc1fbde45ead-in-south-01.mayson.dev
+  pathPrefixes:
+    - /ap-southeast-1-backstractelb-eaa0ec-coll-5fbb400ac1894173bcad23bf289d5f99/ # e.g. /infallible-naveen-... nice-chandrasekhar-4d0a20c997/
+  scaleTargetRef:
+    name: nice-chandrasekhar-4d0a20c997-depl
+    kind: Deployment
+    apiVersion: apps/v1
+    service: nice-chandrasekhar-4d0a20c997-srv # e.g. coll-8a2a...-srv
+    port: 80
+  replicas:
+    min: 0
+    max: 10
+  scaledownPeriod: 1800 #inseconds
+  scalingMetric:
+    requestRate:
+      targetValue: 100
+      window: 1m

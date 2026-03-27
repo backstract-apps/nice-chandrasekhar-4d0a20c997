@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nice-chandrasekhar-4d0a20c997-srv
+  namespace: apps-release
+spec:
+  selector:
+    app: nice-chandrasekhar-4d0a20c997
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 7070
+  type: ClusterIP
