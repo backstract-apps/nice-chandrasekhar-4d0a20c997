@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    name: Build Docker image and Push to AWS ECR and Deploy to EKS
+    name: Bquild Docker image and Push to AWS ECR and Deploy to EKS
     runs-on: ubuntu-latest
 
     env:
