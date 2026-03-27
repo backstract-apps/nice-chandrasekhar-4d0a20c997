@@ -16,7 +16,7 @@ def get_db():
     finally:
         db.close()
 
-@router.get('/agent')
+@router.get('/hola')
 async def get_agent(request: Request, query: schemas.GetAgentQueryParams = Depends(), db: Session = Depends(get_db), protected_deps_1: dict = Depends(default_dependency)):
     try:
         return await service.get_agent(request, db, query.prompt)
